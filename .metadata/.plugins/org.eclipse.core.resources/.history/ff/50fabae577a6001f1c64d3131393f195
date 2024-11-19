@@ -1,0 +1,21 @@
+package OperationOnSinglyLinkedList;
+
+import Node.Node;
+
+public class Search {
+	
+	public boolean searchLinkedList(Node head, int target) {
+		
+		Node current = head;
+		boolean isFound = false;
+		
+		while(current != null) {
+			if(current.data == target) {
+				isFound = true;
+			}
+			current = current.next;
+		}
+		
+		return isFound;
+	}
+}
