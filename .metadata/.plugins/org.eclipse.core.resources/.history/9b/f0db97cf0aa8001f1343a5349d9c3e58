@@ -1,0 +1,36 @@
+package OperationOnCircularLinkedList;
+
+import Node.Node;
+
+public class insertAtTheBeginning {
+	
+	public static void main(String[] args) {
+		Node first = new Node(2);
+        first.next = new Node(3);
+        first.next.next = new Node(4);
+        Node last = first.next.next;
+        last.next = first;
+
+        System.out.print("Original list: ");
+        Node.printCircularNode(first);
+
+        last = insert(last, 5);
+
+        System.out.print("List after inserting 5 at the beginning: ");
+        Node.printLastCircularNode(last);
+	}
+	
+	public static Node insert(Node last,int data) {
+		
+		Node newNode = new Node(data);
+		Node head = last.next;
+		
+		newNode = last.next;
+		newNode.next = head.next;
+		head = newNode;
+		
+		return last;
+	}
+	
+	
+}

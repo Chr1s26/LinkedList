@@ -18,6 +18,7 @@ public class DeleteAtSpecificPosition {
 			count++;
 			current = current.next;
 		}
+		
 		if(current == null) {
 			System.out.print("Position is out of range");
 		}
@@ -26,6 +27,10 @@ public class DeleteAtSpecificPosition {
 			
 		current.prev.next = current.next;
 		
+		}
+		
+		if(current.next != null) {
+			current.next.prev = current.prev;
 		}
 		Node.printNode(head);
 	}
