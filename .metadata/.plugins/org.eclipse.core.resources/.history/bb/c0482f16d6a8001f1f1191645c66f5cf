@@ -1,0 +1,29 @@
+package OperationOnDoublyCircularLinkedList;
+
+public class InsertionAtSpecific {
+	
+	static void printList(Node head) {
+        if (head == null) return;
+        Node curr = head;
+        do {
+            System.out.print(curr.data + " ");
+            curr = curr.next;
+        } while (curr != head);
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+      
+        // Linked List: 10<->20<->30
+        Node head = new Node(10);
+        head.next = new Node(20);
+        head.next.prev = head;
+        head.next.next = new Node(30);
+        head.next.next.prev = head.next;
+        head.next.next.next = head;
+        head.prev = head.next.next;
+
+        head = addNode(head, 2, 5);
+        printList(head);
+    }
+}

@@ -11,6 +11,15 @@ public class Node {
 		this.data = data;
 		this.next = null;
 	}
+	
+	public Node() {
+		
+	}
+	
+	public Node(int data, Node next) {
+		this.data = data;
+		this.next = next;
+	}
 
 	public static void printNode(Node node) {
 
