@@ -23,26 +23,19 @@ public class AddTwoNumbers {
 //		node6.next = node7;
 		
 		
-		ArrayList<Integer> answer = addTwoNumber(node1,node4);
-		for(int answers : answer) {
-			System.out.print(answers+"->");
-		}
+		Node answer = addTwoNumber(node1,node4);
+		Node.printNode(answer);
 	}
 	
-	public static ArrayList<Integer> addTwoNumber(Node l1,Node l2) {
-		
+	public static Node addTwoNumber(Node l1,Node l2) {
 		
 		Node temp1 = l1;
 		Node temp2 = l2;
 		int result = 0;
 		int carry = 0;
-		int count = 0;
 		
-		ArrayList<Integer> answer = new ArrayList<Integer>();
-		
-		if(temp1 == null || temp2 == null) {
-			return null;
-		}
+		Node head = new Node(0);
+		Node node = head;
 		
 		while(temp1 != null || temp2 != null) {
 		
@@ -52,21 +45,19 @@ public class AddTwoNumbers {
 			result = value1 + value2 + carry;
 			
 			carry = result / 10;
-			answer.add(result % 10);
 			
+			node.next = new Node(result % 10);
+			node = node.next;
 			
 	        if (temp1 != null) temp1 = temp1.next;
 	        if (temp2 != null) temp2 = temp2.next;
+	        
 		}
 		
 		if(carry > 0) {
-		answer.add(carry);
-		}
+		node.next = new Node(carry);}
 		
-		
-		
-		return answer;
+		return head.next;
 	}
 	
 }
-// Node node = new Node(); node.next = new Node(); 
